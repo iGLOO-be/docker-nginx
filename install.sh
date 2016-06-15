@@ -15,11 +15,11 @@ fi
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 NGINXPKG="http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz"
-NGINXHEADERSMORE="https://github.com/openresty/headers-more-nginx-module/archive/v0.26.tar.gz"
+NGINXHEADERSMORE="https://github.com/openresty/headers-more-nginx-module/archive/v0.30.tar.gz"
 NGINXFILTER="https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v0.6.4.tar.gz"
-NGINXECHO="https://github.com/openresty/echo-nginx-module/archive/v0.57.tar.gz"
+NGINXECHO="https://github.com/openresty/echo-nginx-module/archive/v0.59.tar.gz"
 NGINXUPSTREAM="https://github.com/yaoweibin/nginx_upstream_check_module.git"
-NPS_VERSION=1.9.32.3
+NPS_VERSION=1.11.33.2
 NGINXPAGESPEED="https://github.com/pagespeed/ngx_pagespeed/archive/v${NPS_VERSION}-beta.tar.gz"
 
 ##################
