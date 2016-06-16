@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 ENV NGINX_VERSION=1.10.1
 ENV PATH=$PATH:/usr/share/nginx/sbin/
