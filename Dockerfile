@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ENV NGINX_VERSION=1.8.1
+ENV NGINX_VERSION=1.10.1
 ENV PATH=$PATH:/usr/share/nginx/sbin/
 
 ADD ./install /tmp/nginx-install

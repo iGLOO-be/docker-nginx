@@ -60,7 +60,7 @@ cd ..
 
 # Build
 cd nginx
-/usr/bin/patch -p1 < ../nginxupstream/check_1.7.5+.patch && \
+/usr/bin/patch -p0 < ../nginxupstream/check_1.9.2+.patch && \
 ./configure --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -D_FORTIFY_SOURCE=2' \
 --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro' \
 --prefix=/usr/share/nginx \
@@ -94,7 +94,7 @@ cd nginx
 --with-http_flv_module \
 --with-mail \
 --with-http_geoip_module \
---with-http_spdy_module && \
+--with-http_v2_module && \
 make && make install
 
 STATUS=$?
