@@ -14,13 +14,17 @@ fi
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+vHEADERSMORE=${HEADERSMORE_VERSION:-"0.30"}
+vNGINXFILTER=${FILTER_VERSION:-"0.6.4"}
+vNGINXECHO=${ECHO_VERSION:-"0.59"}
+vNGINXPAGESPEED=${NPS_VERSION:-"1.11.33.2"}
+
 NGINXPKG="http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz"
-NGINXHEADERSMORE="https://github.com/openresty/headers-more-nginx-module/archive/v0.30.tar.gz"
-NGINXFILTER="https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v0.6.4.tar.gz"
-NGINXECHO="https://github.com/openresty/echo-nginx-module/archive/v0.59.tar.gz"
+NGINXHEADERSMORE="https://github.com/openresty/headers-more-nginx-module/archive/v${vHEADERSMORE}.tar.gz"
+NGINXFILTER="https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v${vNGINXFILTER}.tar.gz"
+NGINXECHO="https://github.com/openresty/echo-nginx-module/archive/v${vNGINXECHO}.tar.gz"
 NGINXUPSTREAM="https://github.com/yaoweibin/nginx_upstream_check_module.git"
-NPS_VERSION=1.11.33.2
-NGINXPAGESPEED="https://github.com/pagespeed/ngx_pagespeed/archive/v${NPS_VERSION}-beta.tar.gz"
+NGINXPAGESPEED="https://github.com/pagespeed/ngx_pagespeed/archive/v${vNGINXPAGESPEED}-beta.tar.gz"
 
 ##################
 # FCT
@@ -54,8 +58,8 @@ git clone $NGINXUPSTREAM `pwd`/nginxupstream
 getPackage $NGINXPAGESPEED nginxpagespeed
 
 cd nginxpagespeed
-wget --quiet https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}.tar.gz
-tar -xzf ${NPS_VERSION}.tar.gz
+wget --quiet https://dl.google.com/dl/page-speed/psol/${vNGINXPAGESPEED}.tar.gz
+tar -xzf ${vNGINXPAGESPEED}.tar.gz
 cd ..
 
 # Build
@@ -111,8 +115,8 @@ then
 
   echo 'NGINX VERSION: ' && `/usr/share/nginx/sbin/nginx -v`
 else
-  echo 'Error...'
-  exit 1
+  echo "Error... ($STATUS)"
+  exit $STATUS
 fi
 
 exit 0
