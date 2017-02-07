@@ -18,6 +18,7 @@ vHEADERSMORE=${HEADERSMORE_VERSION:-"0.30"}
 vNGINXFILTER=${FILTER_VERSION:-"0.6.4"}
 vNGINXECHO=${ECHO_VERSION:-"0.59"}
 vNGINXPAGESPEED=${NPS_VERSION:-"1.11.33.2"}
+vUPSTREAM_PATCH=${UPSTREAM_PATCH_VERSION:-"1.11.5+"}
 
 NGINXPKG="http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz"
 NGINXHEADERSMORE="https://github.com/openresty/headers-more-nginx-module/archive/v${vHEADERSMORE}.tar.gz"
@@ -64,7 +65,7 @@ cd ..
 
 # Build
 cd nginx
-/usr/bin/patch -p0 < ../nginxupstream/check_1.9.2+.patch && \
+/usr/bin/patch -p0 < ../nginxupstream/check_${vUPSTREAM_PATCH}.patch && \
 ./configure --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -Werror=format-security -D_FORTIFY_SOURCE=2' \
 --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro' \
 --prefix=/usr/share/nginx \
