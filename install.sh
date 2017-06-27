@@ -32,6 +32,7 @@ NGINXPAGESPEED="https://github.com/pagespeed/ngx_pagespeed/archive/v${vNGINXPAGE
 ##################
 
 function getPackage() {
+  echo "Get package $2 $1"
   mkdir $2
   curl -L# $1 | tar -zx --strip 1 -C $2
 }
